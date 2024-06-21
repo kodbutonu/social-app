@@ -91,10 +91,11 @@
   .buttonText {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Yatay ortalamayı sağlar */
-    align-items: center; /* Dikey ortalamayı sağlar */
-    height: 25vh; /* Yüksekliği ayarlayabilirsiniz, örneğin burada 15vh olarak ayarlanmış */
+    justify-content: center; 
+    align-items: center; 
+    height: 25vh; 
     text-align: center;
+    margin-right: 15%;
   }
   
   .passwordText{
@@ -108,7 +109,7 @@
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-    margin-top:20%;
+    margin-top:5%;
     width: 75%;
     box-shadow: 0 1px 1px rgb(1, 102, 255), 0 2px 2px rgba(1, 102, 255);
   }
@@ -129,7 +130,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-right: 10%;
   }
   
   .loginRight .buttons img {

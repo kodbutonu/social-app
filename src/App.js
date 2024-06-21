@@ -1,10 +1,9 @@
-
-import Register from "./components/register/register";
-
+import Login from "./components/login/login";
+import Profile from "./pages/home/profile/profile";
 
 
 function App() {
-  return <Register />
+  return <Login />
 }
 
 export default App;

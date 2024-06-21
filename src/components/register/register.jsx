@@ -63,7 +63,7 @@ const Register = () => {
                     
                     <div className="buttonText">
                         <div className="button">Giriş Yap</div>
-                        <p>ya da devam et</p>
+                        <p className='buttonLoginText'>ya da giriş yap</p>
                     </div>
 
                     <div className="buttons">
