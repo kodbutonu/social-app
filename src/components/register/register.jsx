@@ -3,12 +3,69 @@ import './register.css';
 
 const Register = () => {
     const [username, setUsername] = useState(''); 
+    const [email, setEmail] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState(''); 
+    const [passwordAgain, setPasswordAgain] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const isEmailValid = (email) => {
+        // Basit bir e-posta formatı kontrolü için regex kullanımı
+        // Bu regex tüm durumları kapsamayabilir, gerçek bir e-posta doğrulama kütüphanesi tercih edilebilir
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const handleRegister = async () => {
+        try {
+            if (password !== passwordAgain) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            if (!isEmailValid(email)) {
+                alert('Invalid email format');
+                return;
+            }
+            const response = await fetch('http://localhost:8000/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password, email, phoneNumber,passwordAgain }),
+            });
+            
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Something went wrong');
+            }
+            
+            const userData = await response.json();
+            console.log('User registered successfully:', userData);
+            
+
+            // Set success message
+            setSuccessMessage('Registration successful!');
+
+            // Clear form fields after successful registration
+            setUsername('');
+            setEmail('');
+            setPhoneNumber('');
+            setPassword('');
+            setPasswordAgain('');
+
+            // Handle success scenario (redirect, show success message, etc.)
+        } catch (error) {
+            console.error('Registration error:', error.message);
+            // Handle error scenario (show error message, etc.)
+            setErrorMessage('Registration failed. Please try again.');
+        }
+    };
 
     return (
         <div className="login">
             <div className="logoWrapper">
-
                 <img src="assets/logo.png" alt="" className='logoImage' />
                 <h1 className='header'>CATCUT</h1>
             </div>
@@ -20,55 +77,56 @@ const Register = () => {
                         <p>Eğer hesaba sahipseniz</p>
                         <p className='loginText'>Giriş yapabilirsin.</p>
                     </div>
-
                 </div>
                 <img src="assets/user.png" alt="" className='loginİmg' />
                 <div className="loginRight">
-                    <h1>Giriş Yap</h1>
+                    <h1>Kayıt Ol</h1>
                     <input
                         type="text"
-                        value={username} // username state'ini value olarak kullanıyoruz
+                        value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Adınızı girin"
-                        className="textInput"
-                    />
-                       <input
-                        type="text"
-                        value={username} // username state'ini value olarak kullanıyoruz
-                        onChange={(e) => setUsername(e.target.value)}
-                        placeholder="E-mail girin"
+                        placeholder="Kullanıcı Adı"
                         className="textInput"
                     />
                     <input
                         type="text"
-                        value={username} // username state'ini value olarak kullanıyoruz
-                        onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Telefon numaranızı girin"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="E-mail"
                         className="textInput"
                     />
                     <input
-                        type="password" // password tipi input
-                        value={password} // password state'ini value olarak kullanıyoruz
+                        type="text"
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        placeholder="Telefon Numarası"
+                        className="textInput"
+                    />
+                    <input
+                        type="password"
+                        value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Şifrenizi girin"
+                        placeholder="Şifre"
                         className="textInput"
                     />
-                      <input
-                        type="password" // password tipi input
-                        value={password} // password state'ini value olarak kullanıyoruz
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Şifrenizi girin"
+                    <input
+                        type="password"
+                        value={passwordAgain}
+                        onChange={(e) => setPasswordAgain(e.target.value)}
+                        placeholder="Şifreyi Tekrar Girin"
                         className="textInput"
                     />
                     
                     <div className="buttonText">
-                        <div className="button">Giriş Yap</div>
+                        <div className="button" onClick={handleRegister}>Kayıt Ol</div>
                         <p className='buttonLoginText'>ya da giriş yap</p>
                     </div>
 
+                    {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+                    {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+
                     <div className="buttons">
-                        
-                    <img src="/assets/facebook.png" alt="" />
+                        <img src="/assets/facebook.png" alt="" />
                         <img src="/assets/google.png" alt="" />
                         <img src="/assets/apple.png" alt="" />
                     </div>
