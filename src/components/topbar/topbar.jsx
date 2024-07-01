@@ -1,11 +1,13 @@
-import "./topbar.css"
-import { Search, Person, Chat, Notifications } from "@material-ui/icons"
+import React from "react";
+import { Link } from "react-router-dom";
+import "./topbar.css";
+import { Search, Person, Chat, Notifications } from "@material-ui/icons";
 
 export default function Topbar() {
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-        <span className="logo">Lamasocial</span>
+        <Link to="/" className="logo">Lamasocial</Link>
       </div>
       <div className="topbarCenter">
         <div className="searchbar">
@@ -15,12 +17,13 @@ export default function Topbar() {
       </div>
       <div className="topbarRight">
         <div className="topbarLinks">
-          <span className="topbarLink">Homepage</span>
-          <span className="topbarLink">Timeline</span>
+          <Link to="/" className="topbarLink">Homepage</Link>
+          <Link to="/timeline" className="topbarLink">Timeline</Link>
         </div>
         <div className="topbarIcons">
           <div className="topbarIconItem">
-            <Person />
+          <Link to="/profile" className="topbarLink"> <Person /></Link>
+           
             <span className="topbarIconBadge">1</span>
           </div>
           <div className="topbarIconItem">
@@ -34,7 +37,6 @@ export default function Topbar() {
         </div>
         <img src="/assets/person/5.jpeg" alt="" className="topbarImg" />
       </div>
-
     </div>
-  )
+  );
 }

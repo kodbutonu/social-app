@@ -12,7 +12,6 @@ function Home() {
      <Siderbar/>
      <Feed/>
      <Rightbar/>
-     
       </div>
      </>
    

@@ -95,3 +95,35 @@
     object-fit: cover;
     cursor: pointer;
 }
+.topbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .topbarLeft .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none; /* Ensure links are not underlined */
+  }
+  
+  .topbarLeft .logo:hover {
+    color: #555; /* Adjust hover color as needed */
+  }
+  
+  .topbarLinks {
+    display: flex;
+  }
+  
+  .topbarLink {
+    margin-right: 20px;
+    text-decoration: none; /* Ensure links are not underlined */
+    color: white;
+  }
+  
+  .topbarLink:hover {
+    color: #555; /* Adjust hover color as needed */
+  }
+  
