@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './login.css';
-
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const navigate =useNavigate()
 
+    
     const handleLogin = async() => {
 
         try {
@@ -31,11 +33,18 @@ const Login = () => {
             setPassword('');
             
             setSuccessMessage('Login successful!');
+            setTimeout(() => {
+                navigate("/")
+            }, 5000);
+          
         } catch (error) {
             console.error('Login error:', error.message);
 
             setErrorMessage('Login failed. Please try again.');
         }
+    }
+    const handleClickRegister=()=>{
+        navigate("/register");
     }
     return (
         <div className="login">
@@ -50,7 +59,7 @@ const Login = () => {
                     <div className="loginTextWrapper">
                         <span>Giriş Yap</span>
                         <p>Eğer hesaba sahip değilsen</p>
-                        <p className='loginText'>Kayıt olabilirsin.</p>
+                        <p className='loginText' onClick={()=>handleClickRegister()}>Kayıt olabilirsin.</p>
                     </div>
 
                 </div>
@@ -76,7 +85,7 @@ const Login = () => {
                     <p className="passwordText">Şifremi unuttum.</p>
                     <div className="buttonText">
                         <div className="button" onClick={() => handleLogin()}>Giriş Yap</div>
-                        <p>ya da devam et</p>
+                        <p className='loginText'>ya da devam et</p>
                     </div>
 
                     <div className="buttons">

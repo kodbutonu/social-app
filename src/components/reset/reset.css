@@ -1,0 +1,146 @@
+
+
+.login {
+    display: flex;
+    height:100%;
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+  }
+  .logoWrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .loginText{
+    margin-right:10%;
+    margin-bottom:3%
+  }
+  .header{
+    margin-bottom: 1%;
+    font-weight: 600;
+    color:#0056b3;
+  }
+  .logoImage {
+    width: 100px; 
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .loginWrapper {
+    display: flex;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+    flex: 0.2;
+  }
+  
+  .loginLeft {
+    display: flex;
+    flex-direction: column;
+    flex: 0.3 1;
+    justify-content: center;
+    align-items: center;
+  }
+  .loginTextWrapper{
+    display: flex;
+    flex-direction: column;
+    height: 10%;
+  }
+  .loginLeft span {
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+
+  .loginText {
+    color: blue;
+    margin-top: 5%;
+}
+
+.loginİmg {
+    width: 400px;
+    height: 100%;
+    min-height: 200px;
+}
+  
+  .loginRight {
+    flex: 0.3;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+  }
+  
+  .loginRight h1 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  
+  .loginLeft input {
+    padding: 10px;
+    font-size: 16px;
+    border:none;
+    border-radius: 4px;
+    width: 300px;
+    margin-top:10%;
+    background-color: #bfdbf9;
+  }
+  .buttonText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    margin-left: 5%;
+  }
+  
+  .passwordText{
+    color: blue;
+  }
+   .button {
+    justify-content: center;
+    align-items: center;
+    background-color:#0056b3;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top:5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    width: 30%;
+    box-shadow: 20px 13px 101px -3px rgba(0,139,255,0.75);
+  }
+  .textInput::placeholder {
+   
+    color:#0056b3;
+  }
+  .loginRight .button:hover {
+    background-color: #0056b3;
+  }
+  
+  .loginRight p {
+    margin-top: 20px;
+    color: #666;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-right: 10%;
+  }
+  
+  .buttons img {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  

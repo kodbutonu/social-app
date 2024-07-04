@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './register.css';
-
+import { useNavigate } from 'react-router-dom';
 const Register = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -9,6 +9,7 @@ const Register = () => {
     const [passwordAgain, setPasswordAgain] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const navigate =useNavigate()
 
     const isEmailValid = (email) => {
 
@@ -16,6 +17,9 @@ const Register = () => {
         return emailRegex.test(email);
     };
 
+    const handleLogin=()=>{
+     navigate("/login");
+    }
     const handleRegister = async () => {
         try {
             if (password !== passwordAgain) {
@@ -44,7 +48,9 @@ const Register = () => {
             console.log('User registered successfully:', userData);
 
 
-
+            setTimeout(() => {
+                navigate("/login")
+            }, 5000);
             setSuccessMessage('Registration successful!');
 
 
@@ -74,11 +80,13 @@ const Register = () => {
                     <div className="loginTextWrapper">
                         <span>Kayıt Yap</span>
                         <p>Eğer hesaba sahipseniz</p>
-                        <p className='loginText'>Giriş yapabilirsin.</p>
+                        <p className='loginText' onClick={()=>handleLogin()}>Giriş yapabilirsin.</p>
                     </div>
                 </div>
                 <img src="assets/user.png" alt="" className='loginİmg' />
                 <div className="loginRight">
+                {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+                {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
                     <h1>Kayıt Ol</h1>
                     <input
                         type="text"
@@ -120,9 +128,6 @@ const Register = () => {
                         <div className="button" onClick={handleRegister}>Kayıt Ol</div>
                         <p className='buttonLoginText'>ya da giriş yap</p>
                     </div>
-
-                    {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-                    {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
 
                     <div className="buttons">
                         <img src="/assets/facebook.png" alt="" />
