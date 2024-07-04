@@ -10,6 +10,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import Code from './components/code/code';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/reset" element={<Reset />} />
+        <Route path="/code" element={<Code />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile/" element={<Profile />} />
       </Routes>

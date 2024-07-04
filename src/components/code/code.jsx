@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './reset.css';
+import './code.css';
 import { useNavigate } from 'react-router-dom';
-const Reset = () => {
+const Code = () => {
     const [email, setEmail] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -69,11 +69,11 @@ const Reset = () => {
                     </div>
                 </div>
                 <div className="loginRight">
-                    <img src="assets/reset.png" alt="" className='loginİmg' />
+                    <img src="assets/code.png" alt="" className='loginİmg' />
                 </div>
             </div>
         </div>
     );
 }
 
-export default Reset;
+export default Code;
