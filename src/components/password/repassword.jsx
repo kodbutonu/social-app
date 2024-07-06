@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './reset.css';
+import './repassword.css';
 import { useNavigate } from 'react-router-dom';
 import { ArrowBack } from "@material-ui/icons";
-const Reset = () => {
+const RePass = () => {
     const [email, setEmail] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -61,7 +61,14 @@ const Reset = () => {
                         type="text"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Email adresinizi girin"
+                        placeholder="Yeni Şifre Giriniz."
+                        className="textInput"
+                    />
+                     <input
+                        type="text"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Yeni Şifre Giriniz."
                         className="textInput"
                     />
                     <div className="buttonText">
@@ -84,4 +91,4 @@ const Reset = () => {
     );
 }
 
-export default Reset;
+export default RePass;

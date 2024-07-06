@@ -62,11 +62,22 @@
 }
 
 .loginİmg {
-    width: 400px;
+    width: 300px;
     height: 100%;
     min-height: 200px;
 }
-  
+ .backButton{
+  background-color: #bfdbf9;
+  border-bottom-left-radius: 5%;
+  height: 10%;
+  min-height: 30px;
+  border-radius: 10px;
+  margin-right: 50px;
+  min-width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ } 
   .loginRight {
     flex: 0.3;
     justify-content: center;

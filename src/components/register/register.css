@@ -110,7 +110,7 @@
     margin-top: 10%;
     cursor: pointer;
     width: 70%;
-    margin-right: 15%;
+    margin-right: 25%;
     box-shadow: 20px 13px 101px -3px rgba(0,139,255,0.75);
   }
   .textInput::placeholder {
@@ -130,10 +130,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    margin-right: 10%;
-  }
-  
+    margin-top: 10%;
+    margin-right: 5%;
+}
   .loginRight .buttons img {
     width: 40px;
     height: auto;

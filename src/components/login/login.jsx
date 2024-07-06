@@ -46,6 +46,9 @@ const Login = () => {
     const handleClickRegister=()=>{
         navigate("/register");
     }
+    const handleClickReset=()=>{
+        navigate("/reset");
+    }
     return (
         <div className="login">
             <div className="logoWrapper">
@@ -82,7 +85,7 @@ const Login = () => {
                         placeholder="Şifrenizi girin"
                         className="textInput"
                     />
-                    <p className="passwordText">Şifremi unuttum.</p>
+                    <p className="passwordText" onClick={()=>handleClickReset()}>Şifremi unuttum.</p>
                     <div className="buttonText">
                         <div className="button" onClick={() => handleLogin()}>Giriş Yap</div>
                         <p className='loginText'>ya da devam et</p>

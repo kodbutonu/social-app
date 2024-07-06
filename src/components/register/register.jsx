@@ -23,12 +23,12 @@ const Register = () => {
     const handleRegister = async () => {
         try {
             if (password !== passwordAgain) {
-                alert('Passwords do not match');
+                setErrorMessage('Passwords do not match');
                 return;
             }
-
+    
             if (!isEmailValid(email)) {
-                alert('Invalid email format');
+                setErrorMessage('Invalid email format');
                 return;
             }
             const response = await fetch('http://localhost:8000/api/auth/register', {
@@ -38,36 +38,37 @@ const Register = () => {
                 },
                 body: JSON.stringify({ username, password, email, phoneNumber, passwordAgain }),
             });
-
+    
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(errorData.error || 'Something went wrong');
             }
-
+    
             const userData = await response.json();
             console.log('User registered successfully:', userData);
-
-
+    
             setTimeout(() => {
                 navigate("/login")
             }, 5000);
             setSuccessMessage('Registration successful!');
-
-
+    
             setUsername('');
             setEmail('');
             setPhoneNumber('');
             setPassword('');
             setPasswordAgain('');
-
-
+            setErrorMessage(''); // Clear any previous error messages
+    
         } catch (error) {
             console.error('Registration error:', error.message);
-
+    
             setErrorMessage('Registration failed. Please try again.');
         }
     };
-
+    
+    const handleClickReset=()=>{
+        navigate("/reset");
+    }
     return (
         <div className="login">
             <div className="logoWrapper">
@@ -85,9 +86,9 @@ const Register = () => {
                 </div>
                 <img src="assets/user.png" alt="" className='loginİmg' />
                 <div className="loginRight">
-                {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-                {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
                     <h1>Kayıt Ol</h1>
+                    {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+                    {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
                     <input
                         type="text"
                         value={username}
@@ -125,8 +126,8 @@ const Register = () => {
                     />
 
                     <div className="buttonText">
-                        <div className="button" onClick={handleRegister}>Kayıt Ol</div>
-                        <p className='buttonLoginText'>ya da giriş yap</p>
+                        <div className="button" onClick={()=>handleRegister()}>Kayıt Ol</div>
+                        <p className='buttonLoginText' onClick={()=>handleLogin()}>ya da giriş yap</p>
                     </div>
 
                     <div className="buttons">

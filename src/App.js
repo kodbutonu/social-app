@@ -11,6 +11,7 @@ import {
   Route
 } from "react-router-dom";
 import Code from './components/code/code';
+import RePass from './components/password/repassword';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/reset" element={<Reset />} />
         <Route path="/code" element={<Code />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/repass" element={<RePass />} />
         <Route path="/profile/" element={<Profile />} />
       </Routes>
     </Router>
